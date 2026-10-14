@@ -85,6 +85,31 @@ public class PuzzleBoard {
         return new ArrayListView<>(tiles);
     }
 
+    private List<Integer> getNeighbours(int position) {
+        List<Integer> neighbours = new ArrayList<>();
+
+        int row = position / SIZE;
+        int col = position % SIZE;
+
+        if (row > 0) {
+            neighbours.add(position - SIZE);
+        }
+
+        if (row < SIZE - 1) {
+            neighbours.add(position + SIZE);
+        }
+
+        if (col > 0) {
+            neighbours.add(position - 1);
+        }
+
+        if (col < SIZE - 1) {
+            neighbours.add(position + 1);
+        }
+
+        return neighbours;
+    }
+
     public void shuffle() {
         int emptyPosition = getEmptyPosition();
         int previousEmptyPosition = -1;
@@ -105,5 +130,16 @@ public class PuzzleBoard {
         }
 
         moves = 0;
+    }
+
+    public boolean isSolved() {
+        for (int i = 0; i < 8; i++) {
+            if (tiles[i].isEmpty()
+                    || tiles[i].getCorrectPosition() != i) {
+                return false;
+            }
+        }
+
+        return tiles[8].isEmpty();
     }
 }
