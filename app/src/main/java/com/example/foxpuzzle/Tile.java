@@ -7,10 +7,10 @@ public class Tile {
     private final Bitmap image;
     private final boolean empty;
 
-    public Tile(int correctPosition, Bitmap image, boolean empty) {
+    public Tile(int correctPosition, Bitmap image) {
         this.correctPosition = correctPosition;
         this.image = image;
-        this.empty = empty;
+        this.empty = false;
     }
 
     private Tile() {
