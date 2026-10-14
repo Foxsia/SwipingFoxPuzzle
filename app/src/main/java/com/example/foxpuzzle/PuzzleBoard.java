@@ -77,14 +77,6 @@ public class PuzzleBoard {
         return true;
     }
 
-    private List<Tile> toList() {
-        List<Tile> list = new ArrayList<>();
-
-        Collections.addAll(list, tiles);
-
-        return new ArrayListView<>(tiles);
-    }
-
     private List<Integer> getNeighbours(int position) {
         List<Integer> neighbours = new ArrayList<>();
 
@@ -123,7 +115,9 @@ public class PuzzleBoard {
 
             int nextPosition = neighbours.get(random.nextInt(neighbours.size()));
 
-            Collections.swap(toList(), emptyPosition, nextPosition);
+            Tile temp = tiles[emptyPosition];
+            tiles[emptyPosition] = tiles[nextPosition];
+            tiles[nextPosition] = temp;
 
             previousEmptyPosition = emptyPosition;
             emptyPosition = nextPosition;
