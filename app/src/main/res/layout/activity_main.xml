@@ -28,10 +28,12 @@
         android:textSize="16sp"
         android:layout_marginBottom="12dp"/>
 
+
     <GridLayout
         android:id="@+id/puzzleGrid"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:columnCount="3"
         android:rowCount="3">
 
