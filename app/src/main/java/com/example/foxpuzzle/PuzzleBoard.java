@@ -49,7 +49,7 @@ public class PuzzleBoard {
         return -1;
     }
     public boolean canMove(int position) {
-        if (position < 0 || position >= TILE_COUNT) return false;
+        if (position < 0 || position >= TILE_COUNT || isSolved()) return false;
 
         if (tiles[position].isEmpty()) return false;
 
